@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:53:01 by mayoub            #+#    #+#             */
-/*   Updated: 2022/03/18 17:39:53 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/03/18 19:41:47 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,7 +170,7 @@ char	ft_location(char *str, t_design *object)
 			&& str[i] != 'E' && str[i] != '\n')
 			ft_sad(i);
 	}
-	if (object->player != 1 || object->end != 1 || object->coin <= 0)
+	if (object->player != 1 || object->end <= 0 || object->coin <= 0)
 		ft_sad(i);
 	return (1);
 }
