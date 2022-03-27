@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MAIN.C                                             :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:30:18 by mayoub            #+#    #+#             */
-/*   Updated: 2022/03/18 08:51:57 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/03/27 11:15:26 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_solen(char *str, char a)
+int	ft_sad(int i)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] != a)
-			return (-1);
-		i++;
-	}
-	return (i);
+	(void) i;
+	printf("Error\nwrong config bro >:(\n");
+	exit (0);
 }
 
-char	**ini_so_long(int fd)
+char	**ini_so_long(int fd, t_game *all)
 {
 	char	**str;
 	int		i;
@@ -35,25 +28,23 @@ char	**ini_so_long(int fd)
 	k = 0;
 	i = 0;
 	str = NULL;
-	map_read(fd);
+	map_read(fd, all);
 	return (str);
 }
 
-int	main(int argv, char **argc)
+int	main(int argc, char **argv)
 {
-	int	fd;
-	int	i;
+	int			fd;
+	t_game		all;
 
-	(void) argv;
-	i = 0;
-	while (argc[i])
-		i++;
-	if (i > 2)
+	if (argc != 2)
 	{
 		printf("Error\nwrong config bro >:(\n");
 		return (0);
 	}
-	fd = open(argc[1], O_RDONLY);
-	ini_so_long(fd);
+	fd = open(argv[1], O_RDONLY);
+	ini_so_long(fd, &all);
+	printf("coin = %d, player = %d, exit = %d, height = %d, lengh = %d\n", all.objects.coin, all.objects.player, all.objects.end, all.map.height, all.map.lengh);
+	window(&all);
 	close(fd);
 }

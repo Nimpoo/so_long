@@ -6,7 +6,7 @@
 #    By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 15:00:14 by mayoub            #+#    #+#              #
-#    Updated: 2022/03/18 17:05:11 by mayoub           ###   ########.fr        #
+#    Updated: 2022/03/27 11:03:37 by mayoub           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ SRCS	=	get_next_line.c \
 			ft_split.c \
 			parsing.c \
 			main.c \
+			mlx_window.c \
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -22,7 +23,7 @@ NAME	= 	so_long
 
 CC		=	gcc 
 
-CFLAGS	= -Werror -Wall -Wextra -g
+CFLAGS	= -Werror -Wall -Wextra -g 
 
 RM		= rm -rf
 
@@ -30,7 +31,7 @@ RM		= rm -rf
 			${CC} ${CFLAGS} -o $< ${<:.c=.o}
 
 $(NAME):
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+	$(CC) $(CFLAGS) $(SRCS) -framework OpenGL -framework AppKit -lmlx -o $(NAME)
 			
 all:		${NAME}
 
