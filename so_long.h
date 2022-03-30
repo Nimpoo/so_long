@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:29:27 by mayoub            #+#    #+#             */
-/*   Updated: 2022/03/27 11:15:08 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/03/30 18:05:21 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,21 @@
 # include <fcntl.h>
 # include <mlx.h>
 
+typedef struct s_sprites{
+	void	*ground;
+	void	*wall;
+	void	*exit;
+	void	*coin;
+	void	*player_front;
+	void	*player_back;
+	void	*player_left;
+	void	*player_right;
+	void	*vilain_front;
+	void	*vilain_back;
+	void	*vilain_left;
+	void	*vilain_right;
+}t_sprites;
+
 typedef struct s_design{
 	int	player;
 	int	end;
@@ -28,14 +43,16 @@ typedef struct s_design{
 }t_design;
 
 typedef struct s_perimeter{
-	int	height;
-	int	lengh;
+	int		height;
+	int		lengh;
+	char	**map;
 }t_perimeter;
 
 typedef struct s_game
 {
 	t_perimeter	map;
 	t_design	objects;
+	t_sprites	img;
 }t_game;
 
 char	*ft_strdup(char *s1);

@@ -6,7 +6,7 @@
 #    By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 15:00:14 by mayoub            #+#    #+#              #
-#    Updated: 2022/03/27 11:03:37 by mayoub           ###   ########.fr        #
+#    Updated: 2022/03/30 18:39:20 by mayoub           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ NAME	= 	so_long
 
 CC		=	gcc 
 
-CFLAGS	= -Werror -Wall -Wextra -g 
+CFLAGS	= -Werror -Wall -Wextra -g
 
 RM		= rm -rf
 

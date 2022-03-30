@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:53:01 by mayoub            #+#    #+#             */
-/*   Updated: 2022/03/27 11:37:53 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/03/30 15:55:00 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,6 @@ char	**map_read(int fd, t_game *all)
 		printf("%s\n", map[i]);
 		i++;
 	}
+	all->map.map = map;
 	return (map);
 }
