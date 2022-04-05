@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:29:27 by mayoub            #+#    #+#             */
-/*   Updated: 2022/03/30 18:05:21 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/04/05 06:41:34 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,40 @@ typedef struct s_design{
 	int	vilain;
 }t_design;
 
+typedef struct s_location{
+	int	x;
+	int	y;
+}t_location;
+
+typedef struct s_position{
+	char	p_player;
+	int		p_end;
+	int		p_coin;
+	int		p_vilain;
+}t_position;
+
 typedef struct s_perimeter{
 	int		height;
 	int		lengh;
 	char	**map;
 }t_perimeter;
 
-typedef struct s_game
-{
+typedef struct s_var{
+	int	i;
+	int	j;
+	int	d_x;
+	int	d_y;
+}t_var;
+
+typedef struct s_game{
+	void		*mlx;
+	void		*win;
 	t_perimeter	map;
 	t_design	objects;
 	t_sprites	img;
+	t_var		var;
+	t_location	loc;
+	t_position	pos;
 }t_game;
 
 char	*ft_strdup(char *s1);
@@ -67,6 +90,16 @@ char	**ft_split(char *s, char c);
 char	**map_read(int fd, t_game *all);
 int		ft_lengh_height(char *str, t_game *all);
 int		ft_sad(int i);
+void	ft_graphic(t_game *all, void *mlx, void *win);
 void	window(t_game *all);
+void	ft_ini_sprites(t_game *all, void *mlx);
+void	ini_variable(t_game *all);
+void	backslash_n(t_game *all);
+void	colle_image_wall(t_game *all, void *mlx, void *win);
+void	colle_image_coin(t_game *all, void *mlx, void *win);
+void	colle_image_exit(t_game *all, void *mlx, void *win);
+void	colle_image_player(t_game *all, void *mlx, void *win);
+void	colle_image_vilain(t_game *all, void *mlx, void *win);
+int		tester(int i, t_game *all);
 
 #endif

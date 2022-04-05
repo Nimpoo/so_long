@@ -6,7 +6,7 @@
 #    By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 15:00:14 by mayoub            #+#    #+#              #
-#    Updated: 2022/03/30 18:39:20 by mayoub           ###   ########.fr        #
+#    Updated: 2022/04/05 02:50:26 by mayoub           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,9 @@ SRCS	=	get_next_line.c \
 			parsing.c \
 			main.c \
 			mlx_window.c \
+			mlx_ini_sprites.c \
+			put_image.c \
+			deplacement.c \
 
 OBJS	= ${SRCS:.c=.o}
 

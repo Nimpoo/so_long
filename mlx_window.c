@@ -6,100 +6,53 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:17:45 by mayoub            #+#    #+#             */
-/*   Updated: 2022/03/30 18:56:02 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/04/05 02:50:24 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_ini_sprites(t_game *all, void *mlx)
-{
-	all->img.ground = mlx_xpm_file_to_image
-		(mlx, "./sprites/ground.xpm", &all->map.lengh, &all->map.height);
-	all->img.wall = mlx_xpm_file_to_image
-		(mlx, "./sprites/wall.xpm", &all->map.lengh, &all->map.height);
-	all->img.exit = mlx_xpm_file_to_image(
-			mlx, "./sprites/exit.xpm", &all->map.lengh, &all->map.height);
-	all->img.coin = mlx_xpm_file_to_image(
-			mlx, "./sprites/coin.xpm", &all->map.lengh, &all->map.height);
-	all->img.player_front = mlx_xpm_file_to_image
-		(mlx, "./sprites/player_front.xpm", &all->map.lengh, &all->map.height);
-	all->img.player_back = mlx_xpm_file_to_image
-		(mlx, "./sprites/player_back.xpm", &all->map.lengh, &all->map.height);
-	all->img.player_left = mlx_xpm_file_to_image
-		(mlx, "./sprites/player_left.xpm", &all->map.lengh, &all->map.height);
-	all->img.player_right = mlx_xpm_file_to_image
-		(mlx, "./sprites/player_right.xpm", &all->map.lengh, &all->map.height);
-	all->img.vilain_front = mlx_xpm_file_to_image
-		(mlx, "./sprites/vilain_front.xpm", &all->map.lengh, &all->map.height);
-	all->img.vilain_back = mlx_xpm_file_to_image
-		(mlx, "./sprites/vilain_back.xpm", &all->map.lengh, &all->map.height);
-	all->img.vilain_left = mlx_xpm_file_to_image
-		(mlx, "./sprites/vilain_left.xpm", &all->map.lengh, &all->map.height);
-	all->img.vilain_right = mlx_xpm_file_to_image
-		(mlx, "./sprites/vilain_right.xpm", &all->map.lengh, &all->map.height);
-}
-
 void	ft_ground(t_game *all, void *mlx, void *win)
 {
-	int		i;
-	int		j;
-	int		delay_x;
-	int		delay_y;
 	void	*img;
 
-	i = 0;
-	j = 0;
-	delay_x = 0;
-	delay_y = 0;
-	while (all->map.map[i] != NULL)
+	img = NULL;
+	ini_variable(all);
+	while (all->map.map[all->var.i] != NULL)
 	{
-		if (all->map.map[i][j] == '\0')
-		{
-			delay_y += 64;
-			i++;
-			delay_x = 0;
-			j = 0;
-		}
+		if (all->map.map[all->var.i][all->var.j] == '\0')
+			backslash_n(all);
 		img = all->img.ground;
-		mlx_put_image_to_window(mlx, win, img, delay_x, delay_y);
-		delay_x += 64;
-		j++;
+		mlx_put_image_to_window(mlx, win, img, all->var.d_x, all->var.d_y);
+		all->var.d_x += 64;
+		all->var.j++;
 	}
 }
 
-void	ft_wall(t_game *all, void *mlx, void *win)
+void	ft_graphic(t_game *all, void *mlx, void *win)
 {
-	int		i;
-	int		j;
-	int		delay_x;
-	int		delay_y;
 	void	*img;
 
-	i = 0;
-	j = 0;
-	delay_x = 0;
-	delay_y = 0;
-	while (all->map.map[i] != NULL)
+	img = NULL;
+	ini_variable(all);
+	while (all->map.map[all->var.i] != NULL)
 	{
-		if (all->map.map[i][j] == '\0')
-		{
-			delay_y += 64;
-			i++;
-			delay_x = 0;
-			j = 0;
-		}
-		else if (all->map.map[i][j] == '1')
-		{
-			img = all->img.wall;
-			mlx_put_image_to_window(mlx, win, img, delay_x, delay_y);
-			delay_x += 64;
-			j++;
-		}
+		if (all->map.map[all->var.i][all->var.j] == '\0')
+			backslash_n(all);
+		else if (all->map.map[all->var.i][all->var.j] == '1')
+			colle_image_wall(all, mlx, win);
+		else if (all->map.map[all->var.i][all->var.j] == 'C')
+			colle_image_coin(all, mlx, win);
+		else if (all->map.map[all->var.i][all->var.j] == 'E')
+			colle_image_exit(all, mlx, win);
+		else if (all->map.map[all->var.i][all->var.j] == 'P')
+			colle_image_player(all, mlx, win);
+		else if (all->map.map[all->var.i][all->var.j] == 'V')
+			colle_image_vilain(all, mlx, win);
 		else
 		{	
-			delay_x += 64;
-			j++;
+			all->var.d_x += 64;
+			all->var.j++;
 		}
 	}
 }
@@ -113,9 +66,11 @@ void	window(t_game *all)
 	i = 0;
 	printf("%d, %d\n", all->map.height, all->map.lengh);
 	mlx = mlx_init();
-	win = mlx_new_window(mlx, all->map.lengh * 64, all->map.height * 64, "so_long");
+	win = mlx_new_window(mlx, all->map.lengh * 64, all->map.height * 64,
+			"so_long");
 	ft_ini_sprites(all, mlx);
 	ft_ground(all, mlx, win);
-	ft_wall(all, mlx, win);
+	ft_graphic(all, mlx, win);
+	mlx_key_hook(win, tester, all),
 	mlx_loop(mlx);
 }

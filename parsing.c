@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:53:01 by mayoub            #+#    #+#             */
-/*   Updated: 2022/03/30 15:55:00 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/04/05 03:01:41 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,10 @@ char	ft_location(char *str, t_game *all)
 			all->objects.coin++;
 		if (str[i] == 'E')
 			all->objects.end++;
+		if (str[i] == 'E')
+			all->objects.vilain++;
 		if (str[i] != '1' && str[i] != '0' && str[i] != 'C' && str[i] != 'P'
-			&& str[i] != 'E' && str[i] != '\n')
+			&& str[i] != 'E' && str[i] != 'V' && str[i] != '\n')
 			ft_sad(i);
 	}
 	if (all->objects.player != 1 || all->objects.end <= 0
