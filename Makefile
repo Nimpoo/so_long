@@ -6,7 +6,7 @@
 #    By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 15:00:14 by mayoub            #+#    #+#              #
-#    Updated: 2022/04/05 02:50:26 by mayoub           ###   ########.fr        #
+#    Updated: 2022/04/08 05:55:05 by mayoub           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,11 @@ CFLAGS	= -Werror -Wall -Wextra -g
 
 RM		= rm -rf
 
-.c.o:
+%.o:	%.c
 			${CC} ${CFLAGS} -o $< ${<:.c=.o}
 
 $(NAME):
-	$(CC) $(CFLAGS) $(SRCS) -framework OpenGL -framework AppKit -lmlx -o $(NAME)
+	$(CC) $(CFLAGS) $(SRCS) -framework OpenGL -framework AppKit -fsanitize=address -lmlx -o $(NAME)
 			
 all:		${NAME}
 
