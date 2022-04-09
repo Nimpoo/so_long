@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:30:18 by mayoub            #+#    #+#             */
-/*   Updated: 2022/03/31 17:07:03 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/04/09 06:09:38 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,14 @@ int	ft_sad(int i)
 	exit (0);
 }
 
-char	**ini_so_long(int fd, t_game *all)
+int	ini_so_long(int fd, t_game *all)
 {
-	char	**str;
-	int		i;
-	int		k;
-
-	k = 0;
-	i = 0;
-	str = NULL;
 	map_read(fd, all);
-	return (str);
+	printf("%d, %d\n", all->map.height, all->map.lengh);
+	ini_mlx(all);
+	ft_ini_sprites(all);
+	ft_graphic(all);
+	return (1);
 }
 
 int	main(int argc, char **argv)
@@ -43,8 +40,12 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	fd = open(argv[1], O_RDONLY);
-	ini_so_long(fd, &all);
+	if (ini_so_long(fd, &all) < 0)
+		return (0);
 	printf("coin = %d, player = %d, exit = %d, height = %d, lengh = %d\n", all.objects.coin, all.objects.player, all.objects.end, all.map.height, all.map.lengh);
-	window(&all);
+	mlx_hook(all.win, 2, 0, deplacement, (void *)&all);
+	mlx_hook(all.win, 17, 0, kill_window, (void *)&all);
+	mlx_loop_hook(all.mlx, ft_refresh, &all);
+	mlx_loop(all.mlx);
 	close(fd);
 }
