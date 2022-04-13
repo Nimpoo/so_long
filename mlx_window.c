@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:17:45 by mayoub            #+#    #+#             */
-/*   Updated: 2022/04/09 06:40:17 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/04/13 18:35:22 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,6 @@ void	wasd(t_game *all)
 	all->pos.p_player.x = all->var.i;
 	all->pos.p_player.y = all->var.j;
 	colle_image_player(all);
-}
-
-void	put_steps(t_game *all)
-{
-	char	*str;
-
-	str = ft_itoa(all->steps);
-	mlx_string_put(all->mlx, all->win, 64, 64, 0xFFFFFF, str);
-	free(str);
 }
 
 void	ft_graphic(t_game *all)
@@ -61,13 +52,14 @@ void	ft_graphic(t_game *all)
 			all->var.j++;
 		}
 	}
-	put_steps(all);
 }
 
 int	ft_refresh(t_game *all)
 {
-/*	if (all->end_game == 1)
-		kill_window*/
+	/*if (all->end_game == 1)
+		kill_window(all);*/
 	ft_graphic(all);
+	if (ft_check_wall(all, all->pos.p_player.y, all->pos.p_player.x) == 1)
+		put_steps(all);
 	return (1);
 }

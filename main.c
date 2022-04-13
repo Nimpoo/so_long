@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:30:18 by mayoub            #+#    #+#             */
-/*   Updated: 2022/04/09 06:09:38 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/04/13 18:08:56 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	main(int argc, char **argv)
 	if (ini_so_long(fd, &all) < 0)
 		return (0);
 	printf("coin = %d, player = %d, exit = %d, height = %d, lengh = %d\n", all.objects.coin, all.objects.player, all.objects.end, all.map.height, all.map.lengh);
+	all.steps = 0;
+	printf("ta trainée de larmes bien salées : %d\n", all.steps);
 	mlx_hook(all.win, 2, 0, deplacement, (void *)&all);
 	mlx_hook(all.win, 17, 0, kill_window, (void *)&all);
 	mlx_loop_hook(all.mlx, ft_refresh, &all);

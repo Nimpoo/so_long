@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   kill_window.c                                      :+:      :+:    :+:   */
+/*   check_key.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/09 04:31:20 by mayoub            #+#    #+#             */
-/*   Updated: 2022/04/11 16:18:37 by mayoub           ###   ########.fr       */
+/*   Created: 2022/04/13 15:57:07 by mayoub            #+#    #+#             */
+/*   Updated: 2022/04/13 15:57:31 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	free_map(t_game *all)
+void	check_key(t_game *all, int key)
 {
-	int	i;
-
-	i = 0;
-	while (all->map.map[i])
-		free(all->map.map[i++]);
-	free(all->map.map[i]);
-}
-
-int	kill_window(t_game *all)
-{
-	free_map(all);
-	exit(0);
+	if (key == UP)
+		all->side.side_p = UP;
+	if (key == DOWN)
+		all->side.side_p = DOWN;
+	if (key == LEFT)
+		all->side.side_p = LEFT;
+	if (key == RIGHT)
+		all->side.side_p = RIGHT;
 }

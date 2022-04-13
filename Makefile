@@ -6,7 +6,7 @@
 #    By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 15:00:14 by mayoub            #+#    #+#              #
-#    Updated: 2022/04/09 06:30:59 by mayoub           ###   ########.fr        #
+#    Updated: 2022/04/13 16:46:24 by mayoub           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ SRCS	=	get_next_line.c \
 			deplacement.c \
 			kill_window.c \
 			ft_itoa.c \
+			check_key.c \
+			vilain.c \
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -36,7 +38,7 @@ RM		= rm -rf
 			${CC} ${CFLAGS} -o $< ${<:.c=.o}
 
 $(NAME):
-	$(CC) $(CFLAGS) $(SRCS) -framework OpenGL -framework AppKit -fsanitize=address -lmlx -o $(NAME)
+	$(CC) $(CFLAGS) $(SRCS) -framework OpenGL -framework AppKit -lmlx -o $(NAME)
 			
 all:		${NAME}
 

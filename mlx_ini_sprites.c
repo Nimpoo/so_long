@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 17:13:54 by mayoub            #+#    #+#             */
-/*   Updated: 2022/04/09 06:54:38 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/04/13 13:50:43 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,6 @@ void	ft_ini_sprites(t_game *all)
 
 void	ini_variable(t_game *all)
 {
-	all->side.side_p = DOWN;
-	all->side.side_v = 0;
-	all->steps = 0;
 	all->var.i = 0;
 	all->var.j = 0;
 	all->var.d_x = 0;

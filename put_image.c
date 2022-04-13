@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 23:29:43 by mayoub            #+#    #+#             */
-/*   Updated: 2022/04/09 06:59:17 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/04/13 16:09:46 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,18 @@ void	colle_image_exit(t_game *all)
 
 void	colle_image_vilain(t_game *all)
 {
-	mlx_put_image_to_window(all->mlx, all->win, all->img.vilain_front,
-		all->var.d_x, all->var.d_y);
+	if (all->side.side_v == DOWN)
+		mlx_put_image_to_window(all->mlx, all->win, all->img.vilain_front,
+			all->var.d_x, all->var.d_y);
+	else if (all->side.side_v == UP)
+		mlx_put_image_to_window(all->mlx, all->win, all->img.vilain_back,
+			all->var.d_x, all->var.d_y);
+	else if (all->side.side_v == RIGHT)
+		mlx_put_image_to_window(all->mlx, all->win, all->img.vilain_right,
+			all->var.d_x, all->var.d_y);
+	else if (all->side.side_v == LEFT)
+		mlx_put_image_to_window(all->mlx, all->win, all->img.vilain_left,
+			all->var.d_x, all->var.d_y);
 	all->var.d_x += 64;
 	all->var.j++;
 }

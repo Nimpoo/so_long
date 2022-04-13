@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:29:27 by mayoub            #+#    #+#             */
-/*   Updated: 2022/04/09 06:47:09 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/04/13 17:35:56 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,16 @@ typedef struct s_cord{
 	int	y;
 }t_cord;
 
+typedef struct s_cord_v{
+	int	x;
+	int	y;
+}t_cord_v;
+
 typedef struct s_position{
-	t_cord	p_player;
-	int		p_end;
-	int		p_coin;
-	int		p_vilain;
+	t_cord		p_player;
+	int			p_end;
+	int			p_coin;
+	t_cord_v	p_vilain;
 }t_position;
 
 typedef struct s_perimeter{
@@ -89,6 +94,7 @@ typedef struct s_game{
 	void		*mlx;
 	void		*win;
 	int			steps;
+	char		*str;
 	t_side		side;
 	t_perimeter	map;
 	t_design	objects;
@@ -132,9 +138,15 @@ void	colle_image_vilain(t_game *all);
 void	ini_mlx(t_game *all);
 
 int		deplacement(int i, t_game *all);
+void	check_key(t_game *all, int key);
+
 int		ft_refresh(t_game *all);
 int		kill_window(t_game *all);
 char	*ft_itoa(int n);
 void	put_steps(t_game *all);
+int		ft_check_wall(t_game *all, int col, int line);
+
+void	killed_by_vilain(t_game *all);
+int		deplacement_vilain(t_game *all);
 
 #endif
