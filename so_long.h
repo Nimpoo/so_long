@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:29:27 by mayoub            #+#    #+#             */
-/*   Updated: 2022/04/13 17:35:56 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/04/22 17:47:38 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ typedef struct s_perimeter{
 typedef struct s_var{
 	int	i;
 	int	j;
+	int	v_i;
+	int	v_j;
 	int	d_x;
 	int	d_y;
 }t_var;
@@ -94,7 +96,6 @@ typedef struct s_game{
 	void		*mlx;
 	void		*win;
 	int			steps;
-	char		*str;
 	t_side		side;
 	t_perimeter	map;
 	t_design	objects;
@@ -146,7 +147,10 @@ char	*ft_itoa(int n);
 void	put_steps(t_game *all);
 int		ft_check_wall(t_game *all, int col, int line);
 
+void	vilains_pos(t_game *all);
+void	deplacement_vilain(int col, int line, t_game *all);
 void	killed_by_vilain(t_game *all);
-int		deplacement_vilain(t_game *all);
+
+void	free_map(t_game *all);
 
 #endif

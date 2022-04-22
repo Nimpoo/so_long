@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:17:45 by mayoub            #+#    #+#             */
-/*   Updated: 2022/04/13 18:35:22 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/04/22 15:50:59 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	colle_image_ground(t_game *all)
 
 void	wasd(t_game *all)
 {
+	all->pos.p_vilain.x = all->var.i;
+	all->pos.p_vilain.y = all->var.j;
 	all->pos.p_player.x = all->var.i;
 	all->pos.p_player.y = all->var.j;
 	colle_image_player(all);
@@ -55,9 +57,7 @@ void	ft_graphic(t_game *all)
 }
 
 int	ft_refresh(t_game *all)
-{
-	/*if (all->end_game == 1)
-		kill_window(all);*/
+{	
 	ft_graphic(all);
 	if (ft_check_wall(all, all->pos.p_player.y, all->pos.p_player.x) == 1)
 		put_steps(all);

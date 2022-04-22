@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 02:06:34 by mayoub            #+#    #+#             */
-/*   Updated: 2022/04/13 18:27:23 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/04/22 16:07:21 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	put_steps(t_game *all)
 
 	str = ft_itoa(all->steps);
 	mlx_string_put(all->mlx, all->win, 64, 64, 0x9400D3, str);
+	free(str);
 }
 
 int	ft_check_wall(t_game *all, int col, int line)
@@ -55,7 +56,6 @@ void	ft_update(int col, int line, t_game *all)
 	y = all->pos.p_player.y;
 	key = 0;
 	valid = ft_check_wall(all, col, line);
-	deplacement_vilain(all);
 	if (all->end_game == 1)
 		kill_player(all);
 	if (all->end_game == 2)

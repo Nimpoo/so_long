@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:30:18 by mayoub            #+#    #+#             */
-/*   Updated: 2022/04/13 18:08:56 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/04/22 18:19:17 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,29 @@ int	ft_sad(int i)
 int	ini_so_long(int fd, t_game *all)
 {
 	map_read(fd, all);
-	printf("%d, %d\n", all->map.height, all->map.lengh);
 	ini_mlx(all);
 	ft_ini_sprites(all);
 	ft_graphic(all);
 	return (1);
+}
+
+void	ft_check_after_point(char *str)
+{
+	int	i;
+
+	i = ft_strlen(str);
+	if (str[i - 4] != '.')
+		ft_sad(i);
+	i--;
+	if (str[i] != 'r')
+		ft_sad(i);
+	i--;
+	if (str[i] != 'e')
+		ft_sad(i);
+	i--;
+	if (str[i] != 'b')
+		ft_sad(i);
+	i--;
 }
 
 int	main(int argc, char **argv)
@@ -39,10 +57,10 @@ int	main(int argc, char **argv)
 		printf("Error\nwrong config bro >:(\n");
 		return (0);
 	}
+	ft_check_after_point(argv[1]);
 	fd = open(argv[1], O_RDONLY);
 	if (ini_so_long(fd, &all) < 0)
 		return (0);
-	printf("coin = %d, player = %d, exit = %d, height = %d, lengh = %d\n", all.objects.coin, all.objects.player, all.objects.end, all.map.height, all.map.lengh);
 	all.steps = 0;
 	printf("ta trainée de larmes bien salées : %d\n", all.steps);
 	mlx_hook(all.win, 2, 0, deplacement, (void *)&all);

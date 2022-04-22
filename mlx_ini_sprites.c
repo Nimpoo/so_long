@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 17:13:54 by mayoub            #+#    #+#             */
-/*   Updated: 2022/04/13 13:50:43 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/04/17 16:38:24 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	ini_variable(t_game *all)
 {
 	all->var.i = 0;
 	all->var.j = 0;
+	all->var.v_i = 0;
+	all->var.v_j = 0;
 	all->var.d_x = 0;
 	all->var.d_y = 0;
 }

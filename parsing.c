@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:53:01 by mayoub            #+#    #+#             */
-/*   Updated: 2022/04/05 03:01:41 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/04/22 17:08:30 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@ int	ft_remains(int i, int truth, int k, char *str)
 				ft_sad(i);
 		}
 	}
-	printf("k = %d, truth = %d\n", k, truth);
 	return (1);
 }
 
-char	ft_guardian(char *str)
+int	ft_guardian(char *str)
 {
 	int			i;
 	int			k;
@@ -58,7 +57,7 @@ char	ft_guardian(char *str)
 	return (1);
 }
 
-char	ft_location(char *str, t_game *all)
+int	ft_location(char *str, t_game *all)
 {
 	int	i;
 
@@ -121,6 +120,7 @@ char	**map_read(int fd, t_game *all)
 	{
 		i++;
 		tmp = ft_strjoin(tmp, str);
+		free(str);
 		str = get_next_line(fd);
 	}
 	ft_guardian(tmp);
@@ -128,10 +128,8 @@ char	**map_read(int fd, t_game *all)
 	map = ft_split(tmp, '\n');
 	i = 0;
 	while (map[i])
-	{
-		printf("%s\n", map[i]);
 		i++;
-	}
+	free(tmp);
 	all->map.map = map;
 	return (map);
 }
