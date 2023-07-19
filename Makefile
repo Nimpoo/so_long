@@ -6,7 +6,7 @@
 #    By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 15:00:14 by mayoub            #+#    #+#              #
-#    Updated: 2023/07/19 17:20:26 by sihemayoub       ###   ########.fr        #
+#    Updated: 2023/07/19 17:26:35 by sihemayoub       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,12 @@ RM		= rm -rf
 
 $(NAME):
 	$(CC) $(CFLAGS) $(SRCS) -framework OpenGL -framework AppKit -lmlx -o $(NAME)
+			
+minilibx:	
+			curl https://raw.githubusercontent.com/Nimpoo/cub3d/dev/minilibx.tgz -o minilibx.tgz
+			tar -xf minilibx.tgz
+			rm minilibx.tgz
+			make -C minilibx
 			
 all:		${NAME}
 

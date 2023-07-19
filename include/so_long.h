@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:29:27 by mayoub            #+#    #+#             */
-/*   Updated: 2022/04/22 17:47:38 by mayoub           ###   ########.fr       */
+/*   Updated: 2023/07/19 17:27:58 by sihemayoub       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # include <stdlib.h>
 # include <errno.h>
 # include <fcntl.h>
-# include <mlx.h>
+# include "../minilibx/mlx.h"
 
 typedef struct s_sprites{
 	void	*ground;
