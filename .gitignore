@@ -1,0 +1,13 @@
+*
+
+!/src
+!/src/*.c
+!/src/*/
+!/src/*/*.c
+
+!/include
+!/include/*.h
+
+!/Makefile
+!/.gitignore
+!/minilibx.tgz
