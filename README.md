@@ -4,7 +4,8 @@
 ## This is the first grapgical project. It introduce the graphical library of 42 : the `minilibx`.
 
 A simple 2D video game, with collectibles, ennemies and an exit door.
-*Help this **sad child's spirit** <ins>collect</ins> **his birthday balloons** from this abandoned pizzeria, then go see the puppet so he <ins>can rest in peace</ins>.
+
+"*Help this **sad child's spirit** <ins>collect</ins> **his birthday balloons** from this abandoned pizzeria, then go see the puppet so he <ins>can rest in peace</ins>."
 Be careful not to cross paths with the **purple guy** at the risk of <ins>ending up in oblivion forever</ins>.*
 
 ![](./doc/game.png)
