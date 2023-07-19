@@ -6,7 +6,7 @@
 /*   By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:29:27 by mayoub            #+#    #+#             */
-/*   Updated: 2023/07/19 17:27:58 by sihemayoub       ###   ########.fr       */
+/*   Updated: 2023/07/19 21:30:27 by sihemayoub       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ typedef struct s_game{
 }t_game;
 
 char	*ft_strdup(char *s1);
-int		ini_so_long(int fd, t_game *all);
+void	ini_so_long(int fd, t_game *all);
 char	*get_next_line(int fd);
 
 size_t	ft_strlen(char *str);

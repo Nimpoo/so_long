@@ -6,13 +6,13 @@
 /*   By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:53:01 by mayoub            #+#    #+#             */
-/*   Updated: 2023/07/19 21:17:31 by sihemayoub       ###   ########.fr       */
+/*   Updated: 2023/07/19 21:27:43 by sihemayoub       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	ft_remains(int i, int truth, int k, char *str)
+void	ft_remains(int i, int truth, int k, char *str)
 {
 	if ((str[i] == '\0' && ((i) % truth) != k) && k + 1 == truth)
 		ft_sad(i);
@@ -20,15 +20,12 @@ int	ft_remains(int i, int truth, int k, char *str)
 	{
 		i -= truth + 1;
 		while (str[++i])
-		{
 			if (str[i] != '1')
 				ft_sad(i);
-		}
 	}
-	return (1);
 }
 
-int	ft_guardian(char *str)
+void	ft_guardian(char *str)
 {
 	int			i;
 	int			k;
@@ -36,10 +33,8 @@ int	ft_guardian(char *str)
 
 	i = -1;
 	while (str[++i] != '\n')
-	{
 		if (str[i] != '1')
 			ft_sad(i);
-	}
 	truth = i;
 	k = 0;
 	while (str[i])
@@ -54,10 +49,9 @@ int	ft_guardian(char *str)
 		i++;
 	}
 	ft_remains(i, truth, k, str);
-	return (1);
 }
 
-int	ft_location(char *str, t_game *all)
+void	ft_location(char *str, t_game *all)
 {
 	int	i;
 
@@ -83,7 +77,6 @@ int	ft_location(char *str, t_game *all)
 		|| all->objects.coin <= 0)
 		ft_sad(i);
 	ft_lengh_height(str, all);
-	return (1);
 }
 
 int	ft_lengh_height(char *str, t_game *all)

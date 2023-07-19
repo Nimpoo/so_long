@@ -6,7 +6,7 @@
 /*   By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:30:18 by mayoub            #+#    #+#             */
-/*   Updated: 2023/07/19 17:16:49 by sihemayoub       ###   ########.fr       */
+/*   Updated: 2023/07/19 21:26:10 by sihemayoub       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,15 @@
 
 int	ft_sad(int i)
 {
-	(void) i;
-	printf("Error\nwrong config bro >:(\n");
-	exit (0);
+	exit(!printf("Error\nwrong config bro >:(\n") + i - i);
 }
 
-int	ini_so_long(int fd, t_game *all)
+void	ini_so_long(int fd, t_game *all)
 {
 	map_read(fd, all);
 	ini_mlx(all);
 	ft_ini_sprites(all);
 	ft_graphic(all);
-	return (1);
 }
 
 void	ft_check_after_point(char *str)
@@ -59,8 +56,7 @@ int	main(int argc, char **argv)
 	}
 	ft_check_after_point(argv[1]);
 	fd = open(argv[1], O_RDONLY);
-	if (ini_so_long(fd, &all) < 0)
-		return (0);
+	ini_so_long(fd, &all);
 	all.steps = 0;
 	printf("ta trainée de larmes bien salées : %d\n", all.steps);
 	mlx_hook(all.win, 2, 0, deplacement, (void *)&all);
