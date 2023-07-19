@@ -6,7 +6,7 @@
 /*   By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 02:06:34 by mayoub            #+#    #+#             */
-/*   Updated: 2023/07/19 17:16:49 by sihemayoub       ###   ########.fr       */
+/*   Updated: 2023/07/19 17:29:12 by sihemayoub       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,10 @@ void	ft_update(int col, int line, t_game *all)
 {
 	int	x;
 	int	y;
-	int	key;
 	int	valid;
 
 	x = all->pos.p_player.x;
 	y = all->pos.p_player.y;
-	key = 0;
 	valid = ft_check_wall(all, col, line);
 	if (all->end_game == 1)
 		kill_player(all);

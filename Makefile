@@ -6,7 +6,7 @@
 #    By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 15:00:14 by mayoub            #+#    #+#              #
-#    Updated: 2023/07/19 17:26:35 by sihemayoub       ###   ########.fr        #
+#    Updated: 2023/07/19 17:45:42 by sihemayoub       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,21 +24,18 @@ SRCS	=	src/parsing.c					\
 			src/utils/ft_split.c			\
 			src/utils/ft_itoa.c				\
 
-OBJS	= ${SRCS:.c=.o}
+OBJS	=	${SRCS:.c=.o}
 
 NAME	= 	so_long
 
 CC		=	gcc 
 
-CFLAGS	= -Werror -Wall -Wextra -g
+CFLAGS	=	-Werror -Wall -Wextra -g
 
-RM		= rm -rf
+RM		=	rm -rf
 
-%.o:	%.c
-			${CC} ${CFLAGS} -o $< ${<:.c=.o}
-
-$(NAME):
-	$(CC) $(CFLAGS) $(SRCS) -framework OpenGL -framework AppKit -lmlx -o $(NAME)
+$(NAME):	minilibx/libmlx.a $(OBJS)
+			$(CC) $(CFLAGS) -Lminilibx -framework Opengl -framework Appkit minilibx/libmlx.a $(OBJS) -o $(NAME)
 			
 minilibx:	
 			curl https://raw.githubusercontent.com/Nimpoo/cub3d/dev/minilibx.tgz -o minilibx.tgz
@@ -54,6 +51,9 @@ clean:
 fclean:		clean
 			${RM} ${NAME}
 
+fclean_mlx:
+			${RM} minilibx
+
 re:			fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:		minilibx all clean fclean re
