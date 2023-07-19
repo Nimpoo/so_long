@@ -22,6 +22,9 @@ make minilibix
 make && ./cub3D maps/map.ber
 ```
 
+### Commands
+You can control the **crying child** with `WASD keys` and quit the game with `ESC`.
+
 ---
 
 You can remove binary and compiled files :
