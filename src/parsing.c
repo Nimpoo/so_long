@@ -6,7 +6,7 @@
 /*   By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:53:01 by mayoub            #+#    #+#             */
-/*   Updated: 2023/07/19 17:16:49 by sihemayoub       ###   ########.fr       */
+/*   Updated: 2023/07/19 21:17:31 by sihemayoub       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ char	**map_read(int fd, t_game *all)
 	char		*tmp;
 
 	i = 0;
+	tmp = NULL;
 	str = get_next_line(fd);
 	if (!str || str[0] == '\n')
 		ft_sad(i);
@@ -126,9 +127,6 @@ char	**map_read(int fd, t_game *all)
 	ft_guardian(tmp);
 	ft_location(tmp, all);
 	map = ft_split(tmp, '\n');
-	i = 0;
-	while (map[i])
-		i++;
 	free(tmp);
 	all->map.map = map;
 	return (map);

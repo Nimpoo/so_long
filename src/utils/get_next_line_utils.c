@@ -6,7 +6,7 @@
 /*   By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 03:27:54 by mayoub            #+#    #+#             */
-/*   Updated: 2023/07/19 17:17:25 by sihemayoub       ###   ########.fr       */
+/*   Updated: 2023/07/19 21:17:03 by sihemayoub       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ char	*ft_strjoin(char *s1, char *s2)
 		n++;
 	}
 	str[i + n] = 0;
-	free(s1);
 	return (str);
 }
 
