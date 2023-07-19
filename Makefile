@@ -3,26 +3,26 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+         #
+#    By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 15:00:14 by mayoub            #+#    #+#              #
-#    Updated: 2022/04/22 12:42:43 by mayoub           ###   ########.fr        #
+#    Updated: 2023/07/19 17:20:26 by sihemayoub       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=	get_next_line.c \
-			get_next_line_utils.c \
-			ft_split.c \
-			parsing.c \
-			main.c \
-			mlx_window.c \
-			mlx_ini_sprites.c \
-			put_image.c \
-			deplacement.c \
-			kill_window.c \
-			ft_itoa.c \
-			check_key.c \
-			vilain.c \
+SRCS	=	src/parsing.c					\
+			src/main.c						\
+			src/mlx_window.c				\
+			src/mlx_ini_sprites.c			\
+			src/put_image.c					\
+			src/deplacement.c				\
+			src/kill_window.c				\
+			src/check_key.c					\
+			src/vilain.c					\
+			src/utils/get_next_line.c		\
+			src/utils/get_next_line_utils.c	\
+			src/utils/ft_split.c			\
+			src/utils/ft_itoa.c				\
 
 OBJS	= ${SRCS:.c=.o}
 
