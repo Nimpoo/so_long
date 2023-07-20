@@ -22,7 +22,7 @@ git clone git@github.com:Nimpoo/so_long.git
 make minilibx
 ```
 
-**Then you can run this to compile :**
+**Then you can run this to compile** :
 ```
 make && ./cub3D maps/map.ber
 ```
