@@ -12,7 +12,12 @@ Be careful not to cross paths with the **purple guy** at the risk of <ins>ending
 
 ### How to test the program 👾
 
-**First, download the minilibx**
+**First, open a `terminal` and clone the repositorie** :
+```
+git clone git@github.com:Nimpoo/so_long.git
+```
+
+**Second, download the `minilibx`** :
 ```
 make minilibix
 ```
