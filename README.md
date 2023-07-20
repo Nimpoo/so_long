@@ -19,7 +19,7 @@ git clone git@github.com:Nimpoo/so_long.git
 
 **Second, download the `minilibx`** :
 ```
-make minilibix
+make minilibx
 ```
 
 **Then you can run this to compile :**
