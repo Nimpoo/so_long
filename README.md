@@ -12,9 +12,9 @@ Be careful not to cross paths with the **purple guy** at the risk of <ins>ending
 
 ### How to test the program 👾
 
-**First, open a `terminal` and clone the repositorie** :
+**First, open a `terminal`, clone the repositorie and enter it** :
 ```
-git clone git@github.com:Nimpoo/so_long.git
+git clone git@github.com:Nimpoo/so_long.git && cd so_long
 ```
 
 **Second, download the `minilibx`** :
